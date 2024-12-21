@@ -1,14 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_assignment/SigninPage.dart';
 import 'package:flutter_app_assignment/Splashscreen.dart';
+import 'package:flutter_app_assignment/firebase_options.dart';
 import 'package:flutter_app_assignment/services_model.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     ChangeNotifierProvider(
     create: (context) => ServicesModel(),
-    child: MyApp(),
+    child: const MyApp(),
   ),);
 }
 

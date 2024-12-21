@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_assignment/Phoneauth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'adminPage.dart';
 import 'userPage.dart';
-import 'signinPage.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -22,12 +22,12 @@ class _SplashScreenState extends State<SplashScreen> {
     final role = prefs.getString('role') ?? '';
 
     if (isLoggedIn) {
-      if (role == 'admin') {
+      if (role == 'admin123') {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => AdminPage(name: 'admin123')),
         );
-      } else if (role == 'user') {
+      } else if (role == 'user123') {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => UserPage(name: 'user123')),
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
     else {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => SignInScreen()),
+        MaterialPageRoute(builder: (context) => PhoneAuthScreen()),
       );
     }
   }
